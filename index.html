@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="head">
+        <div class="pull-left">
+            <img src="img/logo.svg" />
+        </div>
+        <div class="pull-right">
+            <div class="min icon" id="min" title="最小化"><img src="img/min.png" alt='最小化'/></div>
+            <div class="max icon" id="max" title="最大化"><img src="img/max.png" alt='最大化'/></div>
+            <div class="close icon" id="close" title="关闭"><img src="img/close.png" alt="关闭" /></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+   <div style="margin-top: 30px;margin-left: 80px;">
+
+    <div>
+        <button id="sendTypeOne" onclick="sendTypeOne()">发送消息至main</button>
+        <label>主进程接收，进行处理后，发送给Render进程并alert出来</label>
+    </div>
+
+    <div>
+        <button id="sendTypeTwo" onclick="sendTypeTwo()">global获取全局共享数据</button>
+    </div>
+
+   
+    <div>
+        <button id="sendTypeThree" onclick="sendTypeThree()">global全局共享数据赋值</button>
+    </div>
+
+    <div>
+        <button id="writeFile" onclick="writeFile()">writeFile</button>
+    </div>
+
+    <div>
+        <button id="readFile" onclick="readFile()">readFile</button>
+    </div>
+    <div>
+        <button id="nextPageBtn" onclick="nextPageBtn()">跳转页面</button>
+    </div>
+    <button id="btnmodal" onclick="btnModal()">模态框</button>
+   </div>
+
+    <!-- 头部点击 -->
+    <script src="js/click.js"></script>
+    <script>
+
+    const BrowserWindow = require('electron').remote.BrowserWindow
+    const path = require('path')
+    const newWindowBtn = document.getElementById('btnmodal')
+        newWindowBtn.addEventListener('click', function (event) {
+            alert("2222")
+        const modalPath = path.join(__dirname, 'index.html')
+        let win = new BrowserWindow({ width: 400, height: 320,frame: false })
+        win.on('close', function () { win = null })
+        win.loadURL(modalPath)
+        win.show()
+        })
+
+
+    function sendTypeOne() {
+        //向主进程发送消息
+        ipcRenderer.send('MainMsgFromRender','hahaha')
+    }
+    // 监听主进程返回的消息
+    ipcRenderer.on('RenderMsgFromMain', function (event, arg) {
+        alert(arg)
+    })
+    // 设置监听
+    ipcRenderer.on('main-process-messages', function(event, message){
+        alert(message)
+    })
+   function sendTypeTwo() {
+        //alert(remote.app.getVersion())
+        alert(remote.getGlobal('sharedObject').newTel)
+    }
+
+    function sendTypeThree() {
+        remote.getGlobal('sharedObject').newTel = '1111'
+        alert('赋值成功，请按上一按钮进行验证')
+    }
+
+    function writeFile() {
+        var fs = require('fs')
+        fs.writeFile('input.txt', 'zps,1234566', function (err) {
+            if (err){
+                alert(err)
+            }else{
+                alert('write success')
+            }
+        })
+    }
+
+    function readFile() {
+        var fs = require('fs')
+        fs.readFile('input.txt', function (err, data) {
+            if (err) throw err
+
+            var sp = data.toString().split(',')
+
+            if (sp != null && sp.length >0) {
+                var strp = ''
+                sp.forEach(function (str) {
+                    strp = strp + str
+                })
+
+                alert(strp)
+            }
+        })
+    }      
+    function nextPageBtn() {
+        window.location.href = "home.html?parm=123456"
+    }
+
+</script>
+</body>
+</html>

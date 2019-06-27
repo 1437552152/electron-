@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>编组 3</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板" transform="translate(-334.000000, -46.000000)">
+            <g id="编组-3" transform="translate(334.000000, 46.000000)">
+                <circle id="Zoom" stroke="#1BAC2C" stroke-width="0.5" fill="#2ACB42" cx="6" cy="6" r="5.75"></circle>
+                <polygon id="矩形" fill="#026400" points="4 3 9 3 9 8"></polygon>
+                <polygon id="矩形复制" fill="#026400" transform="translate(5.500000, 6.500000) scale(-1, -1) translate(-5.500000, -6.500000) " points="3 4 8 4 8 9"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

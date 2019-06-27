@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>编组</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板" transform="translate(-294.000000, -46.000000)">
+            <g id="编组" transform="translate(294.000000, 46.000000)">
+                <circle id="Close" stroke="#E24640" stroke-width="0.5" fill="#FF6157" cx="6" cy="6" r="5.75"></circle>
+                <polygon id="路径" fill="#4D0000" points="6 5.33333333 8.33333333 3 9 3.66666667 6.66666667 6 9 8.33333333 8.33333333 9 6 6.66666667 3.66666667 9 3 8.33333333 5.33333333 6 3 3.66666667 3.66666667 3"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

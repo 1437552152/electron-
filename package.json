@@ -1,0 +1,18 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "electron-start":"electron .",
+    "package": "electron-packager ./ chat --out --arch=ia32  ./webApp --electron-version 4.1.0 --ignore=node_modules --icon=icon.ico"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^4.1.0",
+    "electron-packager": "^13.1.1"
+  }
+}
